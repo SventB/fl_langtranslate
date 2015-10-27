@@ -88,6 +88,8 @@ class DataHandler extends \TYPO3\CMS\Core\DataHandling\DataHandler {
 												// Otherwise, do not copy field (unless it is the language field or
 												// pointer to the original language)
 												$excludeFields[] = $fN;
+											} elseif (($fCfg['config']['type'] == 'text' || $fCfg['config']['type'] == 'input') && strlen($row[$fN])) {
+												$overrideValues[$fN] = $row[$fN];
 											}
 										}
 										if ($Ttable === $table) {
